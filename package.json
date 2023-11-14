@@ -1,0 +1,24 @@
+{
+  "name": "streams",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jotabraga/streams.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jotabraga/streams/issues"
+  },
+  "homepage": "https://github.com/jotabraga/streams#readme",
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
