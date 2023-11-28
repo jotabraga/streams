@@ -11,6 +11,7 @@ describe('Test suite for observer pattern', () => {
       const observer = {
         update: jest.fn()
       }
+      console.log('sub first', subject.notify('hii'))
       const data = 'hello world';
       const expected = data;
       subject.subscribe(observer);
@@ -20,6 +21,7 @@ describe('Test suite for observer pattern', () => {
     });
     test("#PaymentSubject not notify unsubscribed observers", () => {
       const subject = new PaymentSubject();
+      console.log('sub here', subject);
       const payment = new Payment(subject);
 
       const paymentSubjectNotifierSpy = jest.spyOn(subject, subject.notify.name);
