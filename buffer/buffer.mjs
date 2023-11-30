@@ -26,6 +26,8 @@ console.log(withBufferFrom.toString(), withBufferFrom, withBufferFrom.byteLength
 const str = 'hello world'
 
 const charCodes = [];
+
+
 const bytes = [];
 
 for(const index in str) {
