@@ -7,6 +7,18 @@ const server = Duplex({
         callback()
     },
     read(){
+        const everySecond = (intervalContext) => {
+            console.log('this', intervalContext)
+            this.counter = this.counter ?? 0;
+            if(this.counter++ <= 5) {
+                this.push(`My name is Jota[${this.counter}]`)
+                return;
+            }
+            clearInterval(intervalContext);
+            this.push(null)
+        }
+
+        setInterval(function() {everySecond(this)})
         
 
     }
@@ -28,4 +40,4 @@ const transformToUpperCase = Transform({
 server
 .pipe(transformToUpperCase)
 .pipe(server)
-.pipe(server)
+
