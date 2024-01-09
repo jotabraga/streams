@@ -8,7 +8,7 @@ const server = Duplex({
     },
     read(){
         const everySecond = (intervalContext) => {
-            console.log('this', intervalContext)
+    
             this.counter = this.counter ?? 0;
             if(this.counter++ <= 5) {
                 this.push(`My name is Jota[${this.counter}]`)
@@ -37,7 +37,11 @@ const transformToUpperCase = Transform({
     }
 })
 
+transformToUpperCase.write(`[transform] hello from writer`)
+// the push method will ignore what you have in the transform function
+transformToUpperCase.push(`[transform] hello from reader`)
+
 server
 .pipe(transformToUpperCase)
-.pipe(server)
+.pipe(server) // it'll redirect all data to the duplex's writable channel
 
