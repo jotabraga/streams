@@ -1,6 +1,13 @@
 import net from "node:net";
 import { randomUUID } from "node:crypto";
+import { Writable } from "node:stream";
 const users = new Map();
+
+const notifySubscribers = (socketId, data) => {
+  ;[...users.values()]
+    .filter(userSocket => userSocket.id !== socketId)
+    .forEach(userSocket => userSocket.write(data))
+}
 
 const server = net.createServer((socket) => {
   socket.pipe(socket);
